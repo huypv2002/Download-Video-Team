@@ -51,6 +51,7 @@ Download-Video-Team/
 │   │   └── custom_head.html             # Giao diện tùy biến: Header thương hiệu, CSS & Logic phân quyền
 │   └── scripts/
 │       ├── setup_server.bat             # Cài đặt tự động môi trường và Startup cho server
+│       ├── enable_domain_https.bat      # 1-click kích hoạt Tên miền Domain HTTPS (Let's Encrypt)
 │       ├── start_server_manual.bat      # Khởi động server trực tiếp ở chế độ màn hình đen
 │       └── win_power_keepalive.ps1      # Tinh chỉnh Windows chống Sleep, chống tắt card mạng
 │

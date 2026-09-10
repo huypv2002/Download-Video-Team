@@ -26,8 +26,8 @@ Có 2 cách siêu nhanh để vào kho:
 
 ### Cách B: Mở trực tiếp bằng trình duyệt Web (Chrome / Edge / Safari)
 1. Mở trình duyệt Web lên.
-2. Gõ địa chỉ IP do Quản lý cung cấp:
-   👉 `http://100.x.y.z:3923/` *(Ví dụ: http://100.85.12.34:3923/)*
+2. Gõ địa chỉ Tên Miền HTTPS do Quản lý cung cấp (Có biểu tượng 🔒 Ổ khóa bảo mật):
+   👉 **`https://kho-video.tailxxxx.ts.net`** *(hoặc địa chỉ IP: http://100.x.y.z:3923/)*
 3. Bạn nên bấm nút hình ngôi sao trên thanh địa chỉ để **Bookmark (Lưu trang)** lại.
 
 ---

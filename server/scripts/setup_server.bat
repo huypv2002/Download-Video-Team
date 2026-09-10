@@ -43,11 +43,30 @@ if exist "%SHORTCUT_PATH%" (
     echo   [-] Khong the tao Startup shortcut, ban co the chay thu cong.
 )
 
+:: 4. Hoi kich hoat Ten mien Domain HTTPS Let's Encrypt
+echo.
+echo [4/4] Kich hoat Ten mien Domain HTTPS mien phi (Tailscale Serve)...
+where tailscale >nul 2>&1
+if %errorlevel% equ 0 (
+    tailscale status >nul 2>&1
+    if %errorlevel% equ 0 (
+        echo [*] Dang tu dong cap phat Ten mien va chung chi SSL Let's Encrypt...
+        tailscale serve --bg 3923
+        echo   + Trang thai Domain HTTPS:
+        tailscale serve status
+    ) else (
+        echo [-] Tailscale chua dang nhap. Ban co the chay file enable_domain_https.bat sau.
+    )
+) else (
+    echo [-] Chua cai Tailscale. Hay cai Tailscale va chay enable_domain_https.bat sau.
+)
+
 echo.
 echo ======================================================
 echo             HOAN TAT CAI DAT MAY CHU!
 echo  - Thu muc video mac dinh: D:\Videos
 echo  - File cau hinh: server\config\copyparty.conf
+echo  - File bat Ten mien HTTPS: server\scripts\enable_domain_https.bat
 echo  - De chay ngay bay gio: Chay file start_server_manual.bat
 echo ======================================================
 echo.

@@ -52,7 +52,19 @@ Tài liệu này dành cho bạn (người triển khai) khi mang toàn bộ th�
 
 ---
 
-### Bước 5: Khởi động Server & Đặt tự chạy cùng Windows
+---
+
+### Bước 5: Kích hoạt Tên miền Domain HTTPS (Có Ổ Khóa Xanh Let's Encrypt)
+Thay vì bắt team phải nhớ địa chỉ IP số `100.x.y.z:3923`, bạn hãy kích hoạt tên miền HTTPS:
+1. Trong thư mục `server/scripts/`, bấm đúp vào **`enable_domain_https.bat`**.
+2. Nhập số `1` để kích hoạt.
+3. Màn hình sẽ hiện ra đường link domain chính thức, ví dụ:
+   👉 **`https://kho-video.tail1234.ts.net`**
+4. Copy link này để gửi cho thành viên trong nhóm hoặc dán vào file `client/1_click_join.bat`!
+
+---
+
+### Bước 6: Khởi động Server & Đặt tự chạy cùng Windows
 1. Trong thư mục `server/scripts/`, bấm đúp vào **`setup_server.bat`**:
    - File này sẽ kiểm tra Python (nếu chưa có sẽ nhắc bạn tải).
    - Tự động chạy `pip install --upgrade copyparty`.
@@ -62,10 +74,10 @@ Tài liệu này dành cho bạn (người triển khai) khi mang toàn bộ th�
 
 ---
 
-### Bước 6: Kiểm tra Nghiệm thu trên Máy Chủ
+### Bước 7: Kiểm tra Nghiệm thu trên Máy Chủ
 1. Mở trình duyệt Chrome/Edge trên máy chủ, truy cập:
-   `http://localhost:3923` hoặc `http://127.0.0.1:3923`
-2. Bạn sẽ thấy giao diện **Kho Video Team**.
+   `https://kho-video.your-team.ts.net` (hoặc `http://localhost:3923`)
+2. Bạn sẽ thấy giao diện **Kho Video Team** có ổ khóa xanh HTTPS bảo mật.
 3. Bấm vào nút đăng nhập ở góc trên, nhập tài khoản:
    - User: `member`
    - Pass: `TeamVideoPass@123`
@@ -77,5 +89,6 @@ Tài liệu này dành cho bạn (người triển khai) khi mang toàn bộ th�
 - [ ] Máy tính đã tắt hoàn toàn chế độ Sleep / Hibernate.
 - [ ] Đã cắm nguồn sạc trực tiếp (khuyên khách trang bị thêm 1 cục lưu điện UPS 1-2 triệu nếu khu vực hay sập nguồn).
 - [ ] Mạng LAN ổn định, Speedtest Upload đạt tối thiểu 40 - 100 Mbps.
+- [ ] Tên miền Domain HTTPS đã được kích hoạt thành công (có ổ khóa bảo mật).
 - [ ] Server tự chạy lại khi khởi động lại máy tính.
 - [ ] Đã lưu lại địa chỉ IP Tailscale của máy chủ.

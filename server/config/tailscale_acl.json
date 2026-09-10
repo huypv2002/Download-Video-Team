@@ -17,6 +17,8 @@
       "action": "accept",
       "src": ["tag:client"],
       "dst": [
+        "tag:server:443",
+        "tag:server:80",
         "tag:server:3923",
         "tag:server:8080"
       ]

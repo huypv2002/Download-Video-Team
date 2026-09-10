@@ -34,7 +34,7 @@ Theo mặc định của Tailscale, tất cả máy khi tham gia sẽ nhìn th�
 4. Bấm **Save**.
 
 ### Cơ chế hoạt động của bộ quy tắc này:
-* **Máy con (`tag:client`) ➔ Máy chủ (`tag:server`)**: CHỈ được phép truy cập vào đúng **Port 3923** và **8080** (Giao diện web xem/tải video).
+* **Máy con (`tag:client`) ➔ Máy chủ (`tag:server`)**: CHỈ được phép truy cập vào đúng **Port 443 (HTTPS Tên miền)**, **Port 80 (HTTP)**, **Port 3923** và **8080** (Giao diện web xem/tải video).
 * **Máy con ➔ Máy con khác**: **BỊ CHẶN HOÀN TOÀN** (Không thể ping, không thể hack, không thể truy cập file chia sẻ riêng tư của nhau).
 * **Admin ➔ Máy chủ**: Toàn quyền quản trị (Web, Remote Desktop, SSH).
 

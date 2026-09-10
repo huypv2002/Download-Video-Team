@@ -11,8 +11,9 @@ Tài liệu này cung cấp sẵn **tin nhắn mẫu gửi khách**, **bảng gi
 > ### 🎯 Phương án triển khai:
 > 1. **Tận dụng 100% PC Windows sẵn có**: Không phát sinh chi phí thuê máy chủ Cloud hay mua thêm ổ cứng hàng tháng.
 > 2. **Giao diện Web mượt mà**: Thành viên chỉ cần mở trình duyệt xem thử (preview) video, tua nhanh không giật lag và bấm tải về tức thì.
-> 3. **Bảo mật & Tốc độ cao**: Sử dụng hạ tầng mạng riêng ảo mã hóa đầu cuối (Tailscale). Phân quyền tài khoản chỉ được đọc/tải, không sợ bị xóa nhầm dữ liệu. Các máy thành viên được cô lập hoàn toàn, không thể soi mạng của nhau.
-> 4. **Tối ưu máy chủ 24/7**: Tinh chỉnh Windows chống ngủ (Sleep/Hibernate), chống ngắt card mạng ngầm, tự động bật lại hệ thống khi có điện trở lại.
+> 3. **Tên miền Domain HTTPS chuyên nghiệp**: Hệ thống có sẵn tên miền riêng kèm chứng chỉ bảo mật SSL (Let's Encrypt) có biểu tượng 🔒 ổ khóa xanh, truy cập chuẩn web không cần nhớ địa chỉ IP số hay số cổng phức tạp.
+> 4. **Bảo mật & Tốc độ cao**: Sử dụng hạ tầng mạng riêng ảo mã hóa đầu cuối (Tailscale). Phân quyền tài khoản chỉ được đọc/tải, không sợ bị xóa nhầm dữ liệu. Các máy thành viên được cô lập hoàn toàn, không thể soi mạng của nhau.
+> 5. **Tối ưu máy chủ 24/7**: Tinh chỉnh Windows chống ngủ (Sleep/Hibernate), chống ngắt card mạng ngầm, tự động bật lại hệ thống khi có điện trở lại.
 >
 > ### 📦 Các gói triển khai đề xuất:
 > * **Gói 1: Triển khai Cơ bản (5.000.000 VNĐ)**:

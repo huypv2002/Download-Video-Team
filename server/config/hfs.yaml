@@ -1,0 +1,34 @@
+# ==============================================================================
+# CAU HINH HFS v3 (HTTP File Server) - PHUONG AN DU PHONG
+# Du an: Download-Video-Team
+# ==============================================================================
+
+port: 8080
+title: "Kho Video Team (HFS Portal)"
+
+# Tu dong mo trinh duyet khi chay server
+open_browser_at_start: false
+
+# Gioi han bang thong cho moi IP (kbps) - 50000 kbps ~ 6.25 MB/s moi may
+# Giup chong 1 may hut het toan bo duong truyen upload nha
+max_kbps_per_ip: 50000
+
+# Thoi gian duy tri phien dang nhap
+session_duration: 604800 # 7 ngay
+
+# Cau hinh cay thu muc ao (Virtual File System)
+vfs:
+  /:
+    source: "D:\\Videos"
+    can_read: ["member", "admin"]
+    can_write: ["admin"]
+    can_delete: ["admin"]
+
+# Danh sach tai khoan
+accounts:
+  admin:
+    password: "Admin@VideoTeam2026"
+    admin: true
+  member:
+    password: "TeamVideoPass@123"
+    admin: false

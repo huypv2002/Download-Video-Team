@@ -1,0 +1,38 @@
+{
+  "//": "=============================================================================",
+  "//": "TAILSCALE ACCESS CONTROL LIST (ACL) - CHONG SOI MANG & CO LAP MAY CON",
+  "//": "Du an: Download-Video-Team",
+  "//": "Cach dung: Copy toan bo noi dung file nay dan vao Admin Console:",
+  "//": "https://login.tailscale.com/admin/acls",
+  "//": "=============================================================================",
+
+  "tagOwners": {
+    "tag:server": ["autogroup:admin"],
+    "tag:client": ["autogroup:admin"]
+  },
+
+  "acls": [
+    {
+      "//": "QUY TAC 1: Cho phep cac may con (tag:client) TRUY CAP DUY NHAT vao cong Web cua May Chu",
+      "action": "accept",
+      "src": ["tag:client"],
+      "dst": [
+        "tag:server:3923",
+        "tag:server:8080"
+      ]
+    },
+    {
+      "//": "QUY TAC 2: Cho phep Quan tri vien (Admin) toan quyen ket noi vao may chu (Web + Remote Desktop)",
+      "action": "accept",
+      "src": ["autogroup:admin"],
+      "dst": [
+        "tag:server:*"
+      ]
+    }
+  ],
+
+  "//": "GHI CHU BAO MAT:",
+  "//": "1. Khong co quy tac nao cho phep tag:client -> tag:client. Do do 20 may con hoan toan bi CO LAP.",
+  "//": "2. May con khong the ping, khong the quet cong (port scan) hay xem trom file cua may con khac.",
+  "//": "3. May con chi nhin thay duy nhat cong 3923 va 8080 cua may chu."
+}

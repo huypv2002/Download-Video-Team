@@ -1,0 +1,23 @@
+# System & OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.venv/
+env/
+venv/
+
+# Logs & temp data
+*.log
+logs/
+temp/
+tmp/
+
+# Third-party upstream repos (keep main repo clean)
+references/

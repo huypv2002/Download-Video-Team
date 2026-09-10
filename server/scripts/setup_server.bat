@@ -9,13 +9,13 @@ echo ======================================================
 echo.
 
 :: 1. Chay script tinh chinh Windows (Sleep, NIC, Firewall)
-echo [1/3] Dang chay tinh chinh Windows 24/7 (Yeu cau quyen Admin)...
+echo [1/4] Dang chay tinh chinh Windows 24/7 (Yeu cau quyen Admin)...
 cd /d "%~dp0"
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "win_power_keepalive.ps1"
 
 :: 2. Kiem tra va cai dat Python / Copyparty
 echo.
-echo [2/3] Kiem tra Python va goi phan mem Copyparty...
+echo [2/4] Kiem tra Python va goi phan mem Copyparty...
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo [CANH BAO] May tinh chua cai Python hoac chua them vao PATH!
@@ -30,7 +30,7 @@ pip install --upgrade copyparty
 
 :: 3. Tao Shortcut khoi dong cung Windows
 echo.
-echo [3/3] Cau hinh tu khoi dong server khi may bat (Startup)...
+echo [3/4] Cau hinh tu khoi dong server khi may bat (Startup)...
 set "STARTUP_FOLDER=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
 set "SHORTCUT_PATH=%STARTUP_FOLDER%\Kho_Video_Server.lnk"
 set "TARGET_BAT=%~dp0start_server_manual.bat"

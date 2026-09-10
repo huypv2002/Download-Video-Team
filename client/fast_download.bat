@@ -25,12 +25,17 @@ echo [*] Video se duoc luu vao: %DOWNLOAD_DIR%
 echo [*] Dang bat dau tai (neu dut mang giua chung, chay lai file nay se tai tiep)...
 echo.
 
+:: Tai khoan xac thuc de tai file tu Kho Video
+set "AUTH_USER=member"
+set "AUTH_PASS=TeamVideoPass@123"
+
 :: Su dung curl co san tren Windows 10/11
+:: Co -u   : Tu dong xac thuc tai khoan member de khong bi loi 401 Unauthorized
 :: Co -C - : Resume tai tiep neu file bi gian doan
 :: Co -O   : Giu nguyen ten file goc tu URL
 :: Co -#   : Hien thi thanh tien trinh (Progress bar)
 cd /d "%DOWNLOAD_DIR%"
-curl.exe -C - -O -# "%VIDEO_URL%"
+curl.exe -u %AUTH_USER%:%AUTH_PASS% -C - -O -# "%VIDEO_URL%"
 
 if %errorlevel% equ 0 (
     echo.

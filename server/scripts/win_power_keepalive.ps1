@@ -49,14 +49,16 @@ foreach ($nic in $adapters) {
     }
 }
 
-# 4. Mo cong Windows Firewall cho Server
-Write-Host "[3/6] Mo cong Windows Firewall (Port 3923 & 8080)..." -ForegroundColor Cyan
+# 4. Mo cong Windows Firewall cho Server (Port 443 HTTPS, 3923 & 8080)
+Write-Host "[3/6] Mo cong Windows Firewall (Port 443, 3923 & 8080)..." -ForegroundColor Cyan
+Remove-NetFirewallRule -DisplayName "Video Server Port 443" -ErrorAction SilentlyContinue
 Remove-NetFirewallRule -DisplayName "Video Server Port 3923" -ErrorAction SilentlyContinue
 Remove-NetFirewallRule -DisplayName "Video Server Port 8080" -ErrorAction SilentlyContinue
 
+New-NetFirewallRule -DisplayName "Video Server Port 443" -Direction Inbound -LocalPort 443 -Protocol TCP -Action Allow -Profile Any | Out-Null
 New-NetFirewallRule -DisplayName "Video Server Port 3923" -Direction Inbound -LocalPort 3923 -Protocol TCP -Action Allow -Profile Any | Out-Null
 New-NetFirewallRule -DisplayName "Video Server Port 8080" -Direction Inbound -LocalPort 8080 -Protocol TCP -Action Allow -Profile Any | Out-Null
-Write-Host "   + Da mo port 3923 va 8080 thanh cong." -ForegroundColor Gray
+Write-Host "   + Da mo port 443 (HTTPS), 3923 va 8080 thanh cong." -ForegroundColor Gray
 
 # 5. Chặn Windows Update tu dong khoi dong lai khi co nguoi dang ket noi
 Write-Host "[4/6] Cau hinh Windows Update khong tu y Reboot..." -ForegroundColor Cyan

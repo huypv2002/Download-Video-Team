@@ -47,6 +47,8 @@ Download-Video-Team/
 │   │   ├── copyparty.conf               # Cấu hình Copyparty tối ưu tốc độ, chống nghẽn đĩa
 │   │   ├── hfs.yaml                     # Cấu hình dự phòng HFS v3
 │   │   └── tailscale_acl.json           # File phân quyền ACL cô lập các máy con
+│   ├── custom/
+│   │   └── custom_head.html             # Giao diện tùy biến: Header thương hiệu, CSS & Logic phân quyền
 │   └── scripts/
 │       ├── setup_server.bat             # Cài đặt tự động môi trường và Startup cho server
 │       ├── start_server_manual.bat      # Khởi động server trực tiếp ở chế độ màn hình đen
@@ -56,7 +58,8 @@ Download-Video-Team/
 │   ├── 01_TRIEN_KHAI_MAY_CHU.md         # Hướng dẫn chi tiết setup PC Server 24/7 từ A-Z
 │   ├── 02_HUONG_DAN_MAY_CON.md          # Hướng dẫn 1 trang cho thành viên (3 bước dễ hiểu)
 │   ├── 03_CAU_HINH_BAO_MAT_TAILSCALE.md # Hướng dẫn cấu hình ACL và tạo Reusable Auth Key
-│   └── 04_KICH_BAN_CHOT_GIA_VA_BAN_GIAO.md # Kịch bản báo giá (5tr - 8tr) và biên bản nghiệm thu
+│   ├── 04_KICH_BAN_CHOT_GIA_VA_BAN_GIAO.md # Kịch bản báo giá (5tr - 8tr) và biên bản nghiệm thu
+│   └── 05_HUONG_DAN_QUAN_LY_TAI_KHOAN_VA_CUSTOM_GIAO_DIEN.md # Quản lý TK/MK, phân vai trò cho phép/chặn tải & custom web
 │
 ├── references/                          # Mã nguồn clone phục vụ phân tích (copyparty, hfs)
 └── README.md                            # Tài liệu tổng quan dự án

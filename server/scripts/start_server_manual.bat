@@ -35,8 +35,8 @@ echo [*] Cac may con trong Tailnet co the truy cap vao port 3923 hoac 8080.
 echo [*] De dung server, bam to hop phim Ctrl + C.
 echo.
 
-:: Chay copyparty voi file config
-cd /d "%~dp0"
-python -m copyparty -c "..\config\copyparty.conf"
+:: Chay copyparty voi file config tu thu muc goc du an
+cd /d "%~dp0..\.."
+python -m copyparty -c "server\config\copyparty.conf"
 
 pause

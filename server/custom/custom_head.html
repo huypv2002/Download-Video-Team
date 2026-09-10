@@ -1,0 +1,231 @@
+<!-- ==============================================================================
+     GIAO DIEN TUY BIEN (CUSTOM UI & THEME) - KHO VIDEO TEAM
+     Du an: Download-Video-Team
+     ============================================================================== -->
+
+<!-- 1. Google Font hien dai: Plus Jakarta Sans & Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* Ghi de Font chu he thong */
+  :root {
+    --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    --font-ui: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    --primary: #3b82f6;
+    --primary-glow: rgba(59, 130, 246, 0.35);
+    --bg-dark: #0f172a;
+    --surface: rgba(30, 41, 59, 0.85);
+    --border-glass: rgba(255, 255, 255, 0.1);
+  }
+
+  body, * {
+    font-family: var(--font-main);
+  }
+
+  /* Thanh Tieu De Thuong Hieu Phia Tren (Branded Header Banner) */
+  #team-video-header {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-bottom: 1px solid var(--border-glass);
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  #team-video-header .brand-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  #team-video-header .brand-icon {
+    font-size: 26px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 8px var(--primary-glow));
+  }
+
+  #team-video-header .brand-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f8fafc;
+    letter-spacing: -0.3px;
+    margin: 0;
+  }
+
+  #team-video-header .brand-subtitle {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 2px;
+  }
+
+  #team-video-header .brand-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .badge-role {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .badge-admin {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+  }
+
+  .badge-downloader {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+  }
+
+  .badge-viewer {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+
+  /* Tinh chinh the Video Player */
+  video {
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid var(--border-glass) !important;
+  }
+
+  /* Hieu ung hover cac card video trong danh sach */
+  .grid .file, #files .file {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease !important;
+    border-radius: 10px !important;
+  }
+
+  .grid .file:hover, #files .file:hover {
+    transform: translateY(-3px) scale(1.01) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  /* Che do danh rieng cho tai khoan CHI XEM (Viewers) - An cac nut tai file */
+  body.role-viewer a[download],
+  body.role-viewer .btn-download,
+  body.role-viewer #act_zip,
+  body.role-viewer .act-zip,
+  body.role-viewer .zip-btn {
+    display: none !important;
+  }
+
+  /* Thong bao chan tai cho Viewer */
+  #viewer-notice-banner {
+    display: none;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: #fde68a;
+    padding: 10px 20px;
+    margin: 15px auto;
+    max-width: 1200px;
+    border-radius: 8px;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  body.role-viewer #viewer-notice-banner {
+    display: block !important;
+  }
+</style>
+
+<!-- Script Logic: Tao Header, Kiem tra Vai tro va Chan Tai cho Viewer -->
+<script nonce="{{ js_nonce }}">
+(function() {
+  function initCustomUI() {
+    // 1. Chen Header Bar Thuong hieu neu chua co
+    if (!document.getElementById('team-video-header')) {
+      var header = document.createElement('div');
+      header.id = 'team-video-header';
+      header.innerHTML = `
+        <div class="brand-left">
+          <div class="brand-icon">🎬</div>
+          <div>
+            <h1 class="brand-title">KHO VIDEO TEAM NỘI BỘ</h1>
+            <div class="brand-subtitle">Hệ thống truyền phát & lưu trữ video tốc độ cao</div>
+          </div>
+        </div>
+        <div class="brand-right" id="team-header-role-badge">
+          <!-- Role badge se duoc chen tu dong boi JS -->
+        </div>
+      `;
+      document.body.insertBefore(header, document.body.firstChild);
+    }
+
+    // 2. Kiem tra tai khoan hien tai dang dang nhap
+    var user = (window.username || (window.fctx && window.fctx.uname) || '').toLowerCase();
+    var roleBadgeContainer = document.getElementById('team-header-role-badge');
+    var bannerContainer = document.getElementById('viewer-notice-banner');
+
+    if (!bannerContainer) {
+      bannerContainer = document.createElement('div');
+      bannerContainer.id = 'viewer-notice-banner';
+      bannerContainer.innerHTML = '⚠️ <strong>Chế độ Xem Thử (Viewer):</strong> Bạn đang truy cập bằng tài khoản chỉ xem. Tính năng tải xuống file gốc đã bị khóa theo chính sách nội bộ.';
+      var headerEl = document.getElementById('team-video-header');
+      if (headerEl && headerEl.nextSibling) {
+        document.body.insertBefore(bannerContainer, headerEl.nextSibling);
+      }
+    }
+
+    // Danh sach cac user thuoc nhom Chi Xem (Viewer)
+    var viewerUsers = ['viewer', 'viewer1', 'viewer2', 'khachhang', 'guest'];
+    var adminUsers = ['admin', 'quanly'];
+
+    if (adminUsers.indexOf(user) !== -1) {
+      if (roleBadgeContainer) {
+        roleBadgeContainer.innerHTML = '<span class="badge-role badge-admin">👑 Quản trị viên (Toàn quyền)</span>';
+      }
+    } else if (viewerUsers.indexOf(user) !== -1) {
+      document.body.classList.add('role-viewer');
+      if (roleBadgeContainer) {
+        roleBadgeContainer.innerHTML = '<span class="badge-role badge-viewer">👁️ Tài khoản: Chỉ Xem (Chặn Tải)</span>';
+      }
+    } else if (user) {
+      if (roleBadgeContainer) {
+        roleBadgeContainer.innerHTML = '<span class="badge-role badge-downloader">⚡ Thành viên: ĐƯỢC TẢI & XEM</span>';
+      }
+    } else {
+      if (roleBadgeContainer) {
+        roleBadgeContainer.innerHTML = '<span class="badge-role badge-viewer">🔒 Khách (Chưa đăng nhập)</span>';
+      }
+    }
+
+    // 3. Tinh chinh tat ca the Video tren trang: Chặn nut download mac dinh cua trinh duyet
+    function protectVideos() {
+      var vids = document.querySelectorAll('video');
+      vids.forEach(function(v) {
+        v.setAttribute('controlsList', 'nodownload');
+        v.setAttribute('oncontextmenu', 'return false;'); // Chặn chuột phải Lưu video thành...
+      });
+    }
+
+    protectVideos();
+    setInterval(protectVideos, 1500);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCustomUI);
+  } else {
+    initCustomUI();
+  }
+})();
+</script>

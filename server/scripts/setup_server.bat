@@ -35,7 +35,7 @@ set "STARTUP_FOLDER=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
 set "SHORTCUT_PATH=%STARTUP_FOLDER%\Kho_Video_Server.lnk"
 set "TARGET_BAT=%~dp0start_server_manual.bat"
 
-powershell -Command "$WshShell = New-Object -comObject WScript.Shell; $Shortcut = $WshShell.CreateShortcut('%SHORTCUT_PATH%'); $Shortcut.TargetPath = '%TARGET_BAT%'; $Shortcut.WorkingDirectory = '%~dp0'; $Shortcut.WindowStyle = 7; $Shortcut.Save()"
+powershell -Command "$WshShell = New-Object -comObject WScript.Shell; $Shortcut = $WshShell.CreateShortcut('%SHORTCUT_PATH%'); $Shortcut.TargetPath = '%TARGET_BAT%'; $Shortcut.WorkingDirectory = (Resolve-Path '%~dp0..\..').Path; $Shortcut.WindowStyle = 7; $Shortcut.Save()"
 
 if exist "%SHORTCUT_PATH%" (
     echo   + Da tao shortcut tu khoi dong tai Startup thanh cong!
